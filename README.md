@@ -2,7 +2,7 @@
 [The Odin Project](https://www.theodinproject.com/home) - [Project Calculator](https://www.theodinproject.com/courses/web-development-101/lessons/calculator)
 
 ## What is this?
-A console-GUI calculator made with JS.
+GUI calculator made with JS.
 ![](media/test.gif)
 
 ## License
