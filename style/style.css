@@ -39,6 +39,10 @@ body {
 	background-color: white;
 }
 
+#input {
+	text-align: right;
+}
+
 .cell h1 {
 	text-align: center;
 	-webkit-touch-callout: none; /* iOS Safari */

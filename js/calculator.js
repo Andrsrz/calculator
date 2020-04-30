@@ -41,13 +41,15 @@ function setCalculatorGrid(size, mode){
 		let gridDiv = document.getElementById("grid");
 		gridDiv.setAttribute("style", "grid-template-columns: repeat(" + size + ", 1fr); \
 									grid-template-rows: repeat(" + rowSize + ", 1fr);");
-		let input = document.createElement("div");
-		input.setAttribute("class", "cell");
-		input.setAttribute("style", "grid-column-start: " + ONE + "; \
+		let inputh1 = document.createElement("h1");
+		inputh1.innerHTML = ZERO;
+		inputh1.setAttribute("id", "input");
+		inputh1.setAttribute("class", "cell");
+		inputh1.setAttribute("style", "grid-column-start: " + ONE + "; \
 										grid-column-end: " + rowSize + "; \
 										grid-row-start: " + ONE + "; \
 										grid-row-end: " + ONE + ";");
-		document.getElementById('grid').appendChild(input);
+		document.getElementById('grid').appendChild(inputh1);
 		for(let i = 2; i <= rowSize; i++){
 			for(let j = 1; j <= size; j++){
 				createDiv(j, i);
