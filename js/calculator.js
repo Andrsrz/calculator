@@ -9,6 +9,7 @@ const SEVEN = 7;
 const EIGHT = 8;
 const NINE = 9;
 const POINT = '.';
+const CLEAR = 'C';
 const PLUS = '+';
 const MINUS = '-';
 const MULTIPLY = '*';
@@ -16,7 +17,7 @@ const DIVIDE = '/';
 const EQUAL = '=';
 const NORMAL_MODE = "normal";
 const OPERATORS = [PLUS, MINUS, MULTIPLY, DIVIDE];
-const CELLS = [SEVEN, EIGHT, NINE, DIVIDE, FOUR, FIVE, SIX, MULTIPLY, ONE, TWO, THREE, MINUS, ZERO, POINT, EQUAL, PLUS];
+const CELLS = [SEVEN, EIGHT, NINE, DIVIDE, FOUR, FIVE, SIX, MULTIPLY, ONE, TWO, THREE, MINUS, ZERO, CLEAR, EQUAL, PLUS];
 
 /* MATH FUNCTIONS */
 const add = function(x, y){ return x + y; }
@@ -45,10 +46,12 @@ function createDiv(column, row, innerChar){
 	let newDiv = document.createElement("div");
 	newDiv.setAttribute("id", divID);
 
-	if(CELLS[innerChar] >= ZERO || CELLS[innerChar] <= NINE || CELLS[innerChar] == POINT)
+	if(CELLS[innerChar] >= ZERO || CELLS[innerChar] <= NINE)
 		newDiv.setAttribute("class", "cell number");
 	else if(OPERATORS.includes(CELLS[innerChar])){
 		newDiv.setAttribute("class", "cell operator");
+	}else if(CELLS[innerChar] == CLEAR){
+		newDiv.setAttribute("class", "cell clear");
 	}else{
 		newDiv.setAttribute("class", "cell equal");
 	}
@@ -111,6 +114,14 @@ function clickListenerOperators(){
 		}));
 }
 
+function clickListenerClear(){
+	let clear = document.querySelectorAll(".clear");
+	return clear.forEach((clear) =>
+		clear.addEventListener("click", function (e) {
+			console.log("This is Clear!");
+		}));
+}
+
 function clickListenerEqual(){
 	let equal = document.querySelectorAll(".equal");
 	return equal.forEach((equal) =>
@@ -123,4 +134,5 @@ function clickListenerEqual(){
 setCalculatorGrid(FOUR, NORMAL_MODE);
 clickListenerNumbers();
 clickListenerOperators();
+clickListenerClear();
 clickListenerEqual();
