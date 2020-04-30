@@ -63,5 +63,14 @@ function setCalculatorGrid(size, mode){
 	}
 }
 
+function clickListener(){
+	let allCells = document.querySelectorAll(".cell");
+	return allCells.forEach((cell) =>
+		cell.addEventListener("click", function (e) {
+			console.log("Works!");
+		}));
+}
+
 /* Calculator Grid */
 setCalculatorGrid(FOUR, NORMAL_MODE);
+clickListener();
