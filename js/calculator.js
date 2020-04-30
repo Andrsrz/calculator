@@ -95,14 +95,32 @@ function updateInput(){
 
 }
 
-function clickListener(){
-	let allCells = document.querySelectorAll(".cell");
-	return allCells.forEach((cell) =>
-		cell.addEventListener("click", function (e) {
-			console.log("Works!");
+function clickListenerNumbers(){
+	let allNumbers = document.querySelectorAll(".number");
+	return allNumbers.forEach((number) =>
+		number.addEventListener("click", function (e) {
+			console.log("This is a number!");
+		}));
+}
+
+function clickListenerOperators(){
+	let allOperators = document.querySelectorAll(".operator");
+	return allOperators.forEach((operator) =>
+		operator.addEventListener("click", function (e) {
+			console.log("This is an operator!");
+		}));
+}
+
+function clickListenerEqual(){
+	let equal = document.querySelectorAll(".equal");
+	return equal.forEach((equal) =>
+		equal.addEventListener("click", function (e) {
+			console.log("This is Equal!");
 		}));
 }
 
 /* Calculator Grid */
 setCalculatorGrid(FOUR, NORMAL_MODE);
-clickListener();
+clickListenerNumbers();
+clickListenerOperators();
+clickListenerEqual();
