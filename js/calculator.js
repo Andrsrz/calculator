@@ -14,8 +14,8 @@ const MINUS = '-';
 const MULTIPLY = '*';
 const DIVIDE = '/';
 const EQUAL = '=';
-const PERCENTAGE = '%';
 const NORMAL_MODE = "normal";
+const OPERATORS = [PLUS, MINUS, MULTIPLY, DIVIDE];
 const CELLS = [SEVEN, EIGHT, NINE, DIVIDE, FOUR, FIVE, SIX, MULTIPLY, ONE, TWO, THREE, MINUS, ZERO, POINT, EQUAL, PLUS];
 
 /* MATH FUNCTIONS */
@@ -38,11 +38,21 @@ function operate(x, y, operator){
 function createDiv(column, row, innerChar){
 	/* Create H1 inside divs */
 	let divID = "div" + column + "-" + row;
+	/* Create inner character */
 	let newH1 = document.createElement("h1");
 	newH1.innerHTML = CELLS[innerChar];
+	/* Set attributes to de div */
 	let newDiv = document.createElement("div");
 	newDiv.setAttribute("id", divID);
-	newDiv.setAttribute("class", "cell");
+
+	if(CELLS[innerChar] >= ZERO || CELLS[innerChar] <= NINE || CELLS[innerChar] == POINT)
+		newDiv.setAttribute("class", "cell number");
+	else if(OPERATORS.includes(CELLS[innerChar])){
+		newDiv.setAttribute("class", "cell operator");
+	}else{
+		newDiv.setAttribute("class", "cell equal");
+	}
+	/* Add to html */
 	document.getElementById('grid').appendChild(newDiv);
 	document.getElementById(divID).appendChild(newH1);
 }

@@ -43,6 +43,18 @@ body {
 	text-align: right;
 }
 
+.number {
+	color: orange;
+}
+
+.operator {
+	color: red;
+}
+
+.equal {
+	color: skyblue;
+}
+
 h1 {
 	text-align: center;
 	-webkit-touch-callout: none; /* iOS Safari */
