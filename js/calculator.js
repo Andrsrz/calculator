@@ -16,6 +16,7 @@ const DIVIDE = '/';
 const EQUAL = '=';
 const PERCENTAGE = '%';
 const NORMAL_MODE = "normal";
+const CELLS = [SEVEN, EIGHT, NINE, DIVIDE, FOUR, FIVE, SIX, MULTIPLY, ONE, TWO, THREE, MINUS, ZERO, POINT, EQUAL, PLUS];
 
 /* MATH FUNCTIONS */
 const add = function(x, y){ return x + y; }
@@ -23,11 +24,11 @@ const subtract = function(x, y){ return x - y; }
 const multiply = function(x, y){ return x * y; }
 const divide = function(x, y){ return x / y; }
 
-function createDiv(column, row){
+function createDiv(column, row, innerChar){
 	/* Create H1 inside divs */
 	let divID = "div" + column + "-" + row;
 	let newH1 = document.createElement("h1");
-	newH1.innerHTML = ONE;
+	newH1.innerHTML = CELLS[innerChar];
 	let newDiv = document.createElement("div");
 	newDiv.setAttribute("id", divID);
 	newDiv.setAttribute("class", "cell");
@@ -36,28 +37,34 @@ function createDiv(column, row){
 }
 
 function setCalculatorGrid(size, mode){
+	/* Ser the actual size for the rows */
 	rowSize = size + ONE;
+	/* Create Calculator in Normal Mode */
 	if(mode == NORMAL_MODE){
+		/* Create the grid */
 		let gridDiv = document.getElementById("grid");
 		gridDiv.setAttribute("style", "grid-template-columns: repeat(" + size + ", 1fr); \
 									grid-template-rows: repeat(" + rowSize + ", 1fr);");
+		/* Create the input */
 		let inputh1 = document.createElement("h1");
 		inputh1.innerHTML = ZERO;
 		inputh1.setAttribute("id", "input");
-		inputh1.setAttribute("class", "cell");
 		inputh1.setAttribute("style", "grid-column-start: " + ONE + "; \
 										grid-column-end: " + rowSize + "; \
 										grid-row-start: " + ONE + "; \
 										grid-row-end: " + ONE + ";");
 		document.getElementById('grid').appendChild(inputh1);
+		/* Create the number and operators cells */
+		let innerChar = 0;
 		for(let i = 2; i <= rowSize; i++){
 			for(let j = 1; j <= size; j++){
-				createDiv(j, i);
+				createDiv(j, i, innerChar); /* Creation */
 				let newDiv = document.getElementById("div" + j + "-" + i);
 				newDiv.setAttribute("style", "grid-column-start: " + j + "; \
 												grid-column-end: " + j + "; \
 												grid-row-start: " + i + "; \
 												grid-row-end: " + i + ";");
+				innerChar++;
 			}
 		}
 	}
