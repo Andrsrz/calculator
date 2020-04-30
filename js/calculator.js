@@ -102,7 +102,7 @@ function clickListenerNumbers(){
 	let allNumbers = document.querySelectorAll(".number");
 	return allNumbers.forEach((number) =>
 		number.addEventListener("click", function (e) {
-			console.log("This is a number!");
+			console.log("This is a number! " + e);
 		}));
 }
 
@@ -110,24 +110,22 @@ function clickListenerOperators(){
 	let allOperators = document.querySelectorAll(".operator");
 	return allOperators.forEach((operator) =>
 		operator.addEventListener("click", function (e) {
-			console.log("This is an operator!");
+			console.log("This is an operator! " + e);
 		}));
 }
 
 function clickListenerClear(){
-	let clear = document.querySelectorAll(".clear");
-	return clear.forEach((clear) =>
-		clear.addEventListener("click", function (e) {
-			console.log("This is Clear!");
-		}));
+	let clear = document.querySelector(".clear");
+	return clear.addEventListener("click", function (e) {
+			console.log("This is Clear! " + e);
+		});
 }
 
 function clickListenerEqual(){
-	let equal = document.querySelectorAll(".equal");
-	return equal.forEach((equal) =>
-		equal.addEventListener("click", function (e) {
-			console.log("This is Equal!");
-		}));
+	let equal = document.querySelector(".equal");
+	return equal.addEventListener("click", function (e) {
+			console.log("This is Equal! " + e);
+		});
 }
 
 /* Calculator Grid */
