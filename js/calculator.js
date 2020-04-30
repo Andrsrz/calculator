@@ -24,6 +24,17 @@ const subtract = function(x, y){ return x - y; }
 const multiply = function(x, y){ return x * y; }
 const divide = function(x, y){ return x / y; }
 
+function operate(x, y, operator){
+	if(operator == PLUS)
+		add(x, y);
+	else if(operator == MINUS)
+		subtrat(x, y);
+	else if(operator == MULTIPLY)
+		multiply(x, y);
+	else if(operator == DIVIDE)
+		divide(x, y);
+}
+
 function createDiv(column, row, innerChar){
 	/* Create H1 inside divs */
 	let divID = "div" + column + "-" + row;
@@ -68,6 +79,10 @@ function setCalculatorGrid(size, mode){
 			}
 		}
 	}
+}
+
+function updateInput(){
+
 }
 
 function clickListener(){
