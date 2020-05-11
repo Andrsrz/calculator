@@ -16,8 +16,9 @@ const MULTIPLY = '*';
 const DIVIDE = '/';
 const EQUAL = '=';
 const NORMAL_MODE = "normal";
-const OPERATORS = [PLUS, MINUS, MULTIPLY, DIVIDE];
 const CELLS = [SEVEN, EIGHT, NINE, DIVIDE, FOUR, FIVE, SIX, MULTIPLY, ONE, TWO, THREE, MINUS, ZERO, CLEAR, EQUAL, PLUS];
+const OPERATORS = [DIVIDE, MULTIPLY, MINUS, PLUS];
+const NUMBERS = [SEVEN, EIGHT, NINE, FOUR, FIVE, SIX, ONE, TWO, THREE, ZERO];
 
 /* MATH FUNCTIONS */
 const add = function(x, y){ return x + y; }
@@ -36,9 +37,9 @@ function operate(x, y, operator){
 		divide(x, y);
 }
 
-function createDiv(column, row, innerChar){
+function createDiv(innerChar){
 	/* Create H1 inside divs */
-	let divID = "div" + column + "-" + row;
+	let divID = "div" + CELLS[innerChar];
 	/* Create inner character */
 	let newH1 = document.createElement("h1");
 	newH1.innerHTML = CELLS[innerChar];
@@ -46,7 +47,7 @@ function createDiv(column, row, innerChar){
 	let newDiv = document.createElement("div");
 	newDiv.setAttribute("id", divID);
 
-	if(CELLS[innerChar] >= ZERO || CELLS[innerChar] <= NINE)
+	if(NUMBERS.includes(CELLS[innerChar]))
 		newDiv.setAttribute("class", "cell number");
 	else if(OPERATORS.includes(CELLS[innerChar])){
 		newDiv.setAttribute("class", "cell operator");
@@ -82,8 +83,8 @@ function setCalculatorGrid(size, mode){
 		let innerChar = 0;
 		for(let i = 2; i <= rowSize; i++){
 			for(let j = 1; j <= size; j++){
-				createDiv(j, i, innerChar); /* Creation */
-				let newDiv = document.getElementById("div" + j + "-" + i);
+				createDiv(innerChar); /* Creation */
+				let newDiv = document.getElementById("div" + CELLS[innerChar]);
 				newDiv.setAttribute("style", "grid-column-start: " + j + "; \
 												grid-column-end: " + j + "; \
 												grid-row-start: " + i + "; \
@@ -92,10 +93,6 @@ function setCalculatorGrid(size, mode){
 			}
 		}
 	}
-}
-
-function updateInput(){
-
 }
 
 function clickListenerNumbers(){
