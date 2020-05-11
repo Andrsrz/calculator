@@ -95,39 +95,33 @@ function setCalculatorGrid(size, mode){
 	}
 }
 
-function clickListenerNumbers(){
-	let allNumbers = document.querySelectorAll(".number");
-	return allNumbers.forEach((number) =>
-		number.addEventListener("click", function (e) {
-			console.log("This is a number! " + e);
-		}));
+function setNumberOnClickEvents(numbers){
+	for(let i = 0; i < numbers.length; i++){
+		let div = document.getElementById("div" + numbers[i]);
+		div.setAttribute("onclick", "console.log(" + numbers[i] + ");");
+	}
 }
 
-function clickListenerOperators(){
-	let allOperators = document.querySelectorAll(".operator");
-	return allOperators.forEach((operator) =>
-		operator.addEventListener("click", function (e) {
-			console.log("This is an operator! " + e);
-		}));
+function setOperatorsOnClickEvents(operators){
+	for(let i = 0; i < operators.length; i++){
+		let div = document.getElementById("div" + operators[i]);
+		div.setAttribute("onclick", "console.log('" + operators[i] + "');");
+	}
 }
 
-function clickListenerClear(){
-	let clear = document.querySelector(".clear");
-	return clear.addEventListener("click", function (e) {
-			console.log("This is Clear! " + e);
-		});
+function setEqualOnClickEvent(){
+	let div = document.getElementById("div=");
+	div.setAttribute("onclick", "console.log('=')");
 }
 
-function clickListenerEqual(){
-	let equal = document.querySelector(".equal");
-	return equal.addEventListener("click", function (e) {
-			console.log("This is Equal! " + e);
-		});
+function setClearOnClickEvent(){
+	let div = document.getElementById("divC");
+	div.setAttribute("onclick", "console.log('clear')");
 }
 
 /* Calculator Grid */
 setCalculatorGrid(FOUR, NORMAL_MODE);
-clickListenerNumbers();
-clickListenerOperators();
-clickListenerClear();
-clickListenerEqual();
+setNumberOnClickEvents(NUMBERS);
+setOperatorsOnClickEvents(OPERATORS);
+setEqualOnClickEvent();
+setClearOnClickEvent();
