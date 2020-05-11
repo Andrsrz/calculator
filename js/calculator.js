@@ -19,22 +19,25 @@ const NORMAL_MODE = "normal";
 const CELLS = [SEVEN, EIGHT, NINE, DIVIDE, FOUR, FIVE, SIX, MULTIPLY, ONE, TWO, THREE, MINUS, ZERO, CLEAR, EQUAL, PLUS];
 const OPERATORS = [DIVIDE, MULTIPLY, MINUS, PLUS];
 const NUMBERS = [SEVEN, EIGHT, NINE, FOUR, FIVE, SIX, ONE, TWO, THREE, ZERO];
+var globalOperation = [];
 
 /* MATH FUNCTIONS */
-const add = function(x, y){ return x + y; }
+const add = function(x, y){ return Number(x) + Number(y); }
 const subtract = function(x, y){ return x - y; }
 const multiply = function(x, y){ return x * y; }
 const divide = function(x, y){ return x / y; }
 
 function operate(x, y, operator){
+	let result = 0;
 	if(operator == PLUS)
-		add(x, y);
+		result = add(x, y);
 	else if(operator == MINUS)
-		subtrat(x, y);
+		result = subtract(x, y);
 	else if(operator == MULTIPLY)
-		multiply(x, y);
+		result = multiply(x, y);
 	else if(operator == DIVIDE)
-		divide(x, y);
+		result = divide(x, y);
+	return result;
 }
 
 function createDiv(innerChar){
@@ -95,28 +98,64 @@ function setCalculatorGrid(size, mode){
 	}
 }
 
+function getInput(){
+	return document.getElementById("input");
+}
+
 function setNumberOnClickEvents(numbers){
 	for(let i = 0; i < numbers.length; i++){
 		let div = document.getElementById("div" + numbers[i]);
-		div.setAttribute("onclick", "console.log(" + numbers[i] + ");");
+		div.setAttribute("onclick", "writeNumber(" + numbers[i] + ")");
 	}
+}
+
+function writeNumber(number){
+	let input = getInput();
+	let str = "";
+	if(input.innerHTML == 0){
+		str = number;
+	}else{
+		str = input.innerHTML + number;
+	}
+	input.innerHTML = str;
 }
 
 function setOperatorsOnClickEvents(operators){
 	for(let i = 0; i < operators.length; i++){
 		let div = document.getElementById("div" + operators[i]);
-		div.setAttribute("onclick", "console.log('" + operators[i] + "');");
+		div.setAttribute("onclick", "getFirstNumber('" + operators[i] + "')");
 	}
+}
+
+function getFirstNumber(operator){
+	let input = getInput();
+	globalOperation[0] = input.innerHTML;
+	globalOperation[1] = operator;
+	clearInput();
 }
 
 function setEqualOnClickEvent(){
 	let div = document.getElementById("div=");
-	div.setAttribute("onclick", "console.log('=')");
+	div.setAttribute("onclick", "getResult()");
+}
+
+function getResult(){
+	let input = getInput();
+	let secondNumber = input.innerHTML;
+	console.log(globalOperation[0], secondNumber, globalOperation[1]);
+	let result = operate(globalOperation[0], secondNumber, globalOperation[1]);
+	input.innerHTML = result;
+	globalOperation = [];
 }
 
 function setClearOnClickEvent(){
 	let div = document.getElementById("divC");
-	div.setAttribute("onclick", "console.log('clear')");
+	div.setAttribute("onclick", "clearInput()");
+}
+
+function clearInput(){
+	let input = getInput();
+	input.innerHTML = 0;
 }
 
 /* Calculator Grid */
