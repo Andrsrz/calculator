@@ -47,6 +47,8 @@ function operate(x, y, operator){
 		result = multiply(x, y);
 	else if(operator == DIVIDE)
 		result = divide(x, y);
+	else if(operator == POWER)
+		result = power(x, y);
 	return result;
 }
 
