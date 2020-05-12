@@ -20,8 +20,8 @@ const SQUARE = '√';
 const EQUAL = '=';
 const NORMAL_MODE = "normal";
 const CELLS = [SEVEN, EIGHT, NINE, DIVIDE, CLEAR, FOUR, FIVE, SIX, MULTIPLY, DELETE, ONE, TWO, THREE, MINUS, POWER, ZERO, POINT, EQUAL, PLUS, SQUARE];
-const OPERATORS = [DIVIDE, MULTIPLY, MINUS, PLUS];
-const NUMBERS = [SEVEN, EIGHT, NINE, FOUR, FIVE, SIX, ONE, TWO, THREE, ZERO];
+const OPERATORS = [DIVIDE, MULTIPLY, MINUS, PLUS, POWER, SQUARE];
+const NUMBERS = [SEVEN, EIGHT, NINE, FOUR, FIVE, SIX, ONE, TWO, THREE, ZERO, POINT];
 var globalOperation = [];
 
 /* MATH FUNCTIONS */
@@ -66,7 +66,9 @@ function createDiv(innerChar){
 		newDiv.setAttribute("class", "cell operator");
 	}else if(CELLS[innerChar] == CLEAR){
 		newDiv.setAttribute("class", "cell clear");
-	}else{
+	}else if(CELLS[innerChar] == DELETE){
+		newDiv.setAttribute("class", "cell delete");
+	}else if(CELLS[innerChar] == EQUAL){
 		newDiv.setAttribute("class", "cell equal");
 	}
 	/* Add to html */

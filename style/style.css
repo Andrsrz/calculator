@@ -43,7 +43,12 @@ body {
 
 .clear {
 	background-color: #72A1C0;
-	color black;
+	color: black;
+}
+
+.delete {
+	background-color: #72A1C0;
+	color: black;
 }
 
 .equal {
