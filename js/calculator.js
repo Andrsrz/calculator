@@ -9,11 +9,14 @@ const SEVEN = 7;
 const EIGHT = 8;
 const NINE = 9;
 const POINT = '.';
-const CLEAR = 'C';
+const CLEAR = 'AC';
+const DELETE = 'DEL';
 const PLUS = '+';
 const MINUS = '-';
 const MULTIPLY = '*';
 const DIVIDE = '/';
+const POWER = 'x²';
+const SQUARE = ''
 const EQUAL = '=';
 const NORMAL_MODE = "normal";
 const CELLS = [SEVEN, EIGHT, NINE, DIVIDE, FOUR, FIVE, SIX, MULTIPLY, ONE, TWO, THREE, MINUS, ZERO, CLEAR, EQUAL, PLUS];
@@ -26,6 +29,13 @@ const add = function(x, y){ return Number(x) + Number(y); }
 const subtract = function(x, y){ return x - y; }
 const multiply = function(x, y){ return x * y; }
 const divide = function(x, y){ return x / y; }
+const power = function(base, exponent){
+	let power = 1;
+	for(let i = 0; i < exponent; i++){
+		power *= base;
+	}
+	return power;
+}
 
 function operate(x, y, operator){
 	let result = 0;
