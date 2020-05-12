@@ -180,9 +180,23 @@ function clearInput(){
 	document.getElementById("div.").style.pointerEvents = "auto";
 }
 
+function setDeleteOnClickEvent(){
+	let div = document.getElementById("divDEL");
+	div.setAttribute("onclick", "deleteChar()");
+}
+
+function deleteChar(){
+	let input = getInput();
+	let text = input.innerHTML;
+	/* Cut last character */
+	text = text.slice(0, text.length - 1) + text.slice(text.length);
+	input.innerHTML = text;
+}
+
 /* Calculator Grid */
 setCalculatorGrid(FIVE, NORMAL_MODE);
 setNumberOnClickEvents(NUMBERS);
 setOperatorsOnClickEvents(OPERATORS);
 setEqualOnClickEvent();
 setClearOnClickEvent();
+setDeleteOnClickEvent();
