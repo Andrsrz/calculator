@@ -142,7 +142,9 @@ function setEqualOnClickEvent(){
 function getResult(){
 	let input = getInput();
 	let secondNumber = input.innerHTML;
-	console.log(globalOperation[0], secondNumber, globalOperation[1]);
+	if(globalOperation[0] == null){
+		return;
+	}
 	let result = operate(globalOperation[0], secondNumber, globalOperation[1]);
 	input.innerHTML = result;
 	globalOperation = [];
