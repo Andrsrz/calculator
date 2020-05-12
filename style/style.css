@@ -3,6 +3,7 @@
 body {
 	margin: 0px;
 	font-family: 'Noto Sans', sans-serif;
+	background: #5273E0;
 }
 
 .calculatorContainer {
@@ -13,30 +14,41 @@ body {
 
 .grid {
 	display: grid;
-	border: 1px solid black;
 	height: 500px;
-	width: 500px;
+	width: 450px;
 }
 
 .cell {
 	background-color: white;
 	border: 1px outset black;
+	border-radius: 10px;
 }
 
 #input {
+	background-color: white;
 	text-align: right;
+	border-radius: 15px;
+	border: 1px outset black;
 }
 
 .number {
-	color: orange;
+	background-color: #2750D8;
+	color: white;
 }
 
 .operator {
-	color: red;
+	background-color: #1E8FE1;
+	color: black;
+}
+
+.clear {
+	background-color: #72A1C0;
+	color black;
 }
 
 .equal {
-	color: skyblue;
+	background-color: #4F8AB0;
+	color: black;
 }
 
 h1 {
@@ -56,7 +68,6 @@ h1 {
 	justify-content: flex-end;
 	list-style: none;
 	margin-top: auto;
-	background: #0277FC;
 }
 
 .footer a {
@@ -64,10 +75,6 @@ h1 {
 	display: block;
 	padding: 1em;
 	color: white;
-}
-
-.footer a:hover {
-	background: #0868D6
 }
 
 @media all and (max-width: 800px) {
