@@ -36,6 +36,7 @@ const power = function(base, exponent){
 	}
 	return power;
 }
+const square = function(x){ return Math.sqrt(x); }
 
 function operate(x, y, operator){
 	let result = 0;
@@ -49,6 +50,8 @@ function operate(x, y, operator){
 		result = divide(x, y);
 	else if(operator == POWER)
 		result = power(x, y);
+	else if(operator == SQUARE)
+		result = square(x);
 	return result;
 }
 
