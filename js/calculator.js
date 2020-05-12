@@ -116,7 +116,11 @@ function getInput(){
 function setNumberOnClickEvents(numbers){
 	for(let i = 0; i < numbers.length; i++){
 		let div = document.getElementById("div" + numbers[i]);
-		div.setAttribute("onclick", "writeNumber(" + numbers[i] + ")");
+		if(numbers[i] == '.'){
+			div.setAttribute("onclick", "writeNumber('" + numbers[i] + "')");
+		}else{
+			div.setAttribute("onclick", "writeNumber(" + numbers[i] + ")");
+		}
 	}
 }
 
