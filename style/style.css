@@ -5,26 +5,6 @@ body {
 	font-family: 'Noto Sans', sans-serif;
 }
 
-.header {
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: flex-start;
-	list-style: none;
-	margin: 0;
-	background: #FC8B0A;
-}
-
-.header a {
-	text-decoration: none;
-	display: block;
-	padding: 1em;
-	color: white;
-}
-
-.header a:hover {
-	background: #D87606;
-}
-
 .calculatorContainer {
 	display: grid;
 	align-items: center;
@@ -91,21 +71,21 @@ h1 {
 }
 
 @media all and (max-width: 800px) {
-	.header, .footer {
+	.footer {
 		justify-content: space-around;
 	}
 }
 
 @media all and (max-width: 600px) {
-	.header, .footer {
+	.footer {
 		flex-flow: column wrap;
 		padding: 0;
 	}
-	.header, a, .footer a {
+	.footer a {
 		text-align: center;
 		padding: 10px;
 	}
-	.header, li:last-of-type a, .footer li:last-of-type a {
+	.footer li:last-of-type a {
 		border-bottom: none;
 	}
 }
