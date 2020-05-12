@@ -75,6 +75,7 @@ function createDiv(innerChar){
 }
 
 function setCalculatorGrid(size, mode){
+	let inputSize = size + ONE;
 	/* Create Calculator in Normal Mode */
 	if(mode == NORMAL_MODE){
 		/* Create the grid */
@@ -86,7 +87,7 @@ function setCalculatorGrid(size, mode){
 		inputh1.innerHTML = ZERO;
 		inputh1.setAttribute("id", "input");
 		inputh1.setAttribute("style", "grid-column-start: " + ONE + "; \
-										grid-column-end: " + size + "; \
+										grid-column-end: " + inputSize + "; \
 										grid-row-start: " + ONE + "; \
 										grid-row-end: " + ONE + ";");
 		document.getElementById('grid').appendChild(inputh1);
@@ -159,7 +160,7 @@ function getResult(){
 }
 
 function setClearOnClickEvent(){
-	let div = document.getElementById("divC");
+	let div = document.getElementById("divAC");
 	div.setAttribute("onclick", "clearInput()");
 }
 
