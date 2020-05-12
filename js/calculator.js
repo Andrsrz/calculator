@@ -75,26 +75,24 @@ function createDiv(innerChar){
 }
 
 function setCalculatorGrid(size, mode){
-	/* Set the actual size for the rows */
-	rowSize = size + ONE;
 	/* Create Calculator in Normal Mode */
 	if(mode == NORMAL_MODE){
 		/* Create the grid */
 		let gridDiv = document.getElementById("grid");
 		gridDiv.setAttribute("style", "grid-template-columns: repeat(" + size + ", 1fr); \
-									grid-template-rows: repeat(" + rowSize + ", 1fr);");
+									grid-template-rows: repeat(" + size + ", 1fr);");
 		/* Create the input */
 		let inputh1 = document.createElement("h1");
 		inputh1.innerHTML = ZERO;
 		inputh1.setAttribute("id", "input");
 		inputh1.setAttribute("style", "grid-column-start: " + ONE + "; \
-										grid-column-end: " + rowSize + "; \
+										grid-column-end: " + size + "; \
 										grid-row-start: " + ONE + "; \
 										grid-row-end: " + ONE + ";");
 		document.getElementById('grid').appendChild(inputh1);
 		/* Create the number and operators cells */
 		let innerChar = 0;
-		for(let i = 2; i <= rowSize; i++){
+		for(let i = 2; i <= size; i++){
 			for(let j = 1; j <= size; j++){
 				createDiv(innerChar); /* Creation */
 				let newDiv = document.getElementById("div" + CELLS[innerChar]);
@@ -171,7 +169,7 @@ function clearInput(){
 }
 
 /* Calculator Grid */
-setCalculatorGrid(FOUR, NORMAL_MODE);
+setCalculatorGrid(FIVE, NORMAL_MODE);
 setNumberOnClickEvents(NUMBERS);
 setOperatorsOnClickEvents(OPERATORS);
 setEqualOnClickEvent();
