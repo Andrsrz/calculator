@@ -133,6 +133,10 @@ function writeNumber(number){
 		str = input.innerHTML + number;
 	}
 	input.innerHTML = str;
+	/* Prevents the user to set two or more point in the value. */
+	if(number == '.'){
+		document.getElementById("div.").style.pointerEvents = "none";
+	}
 }
 
 function setOperatorsOnClickEvents(operators){
@@ -173,6 +177,7 @@ function setClearOnClickEvent(){
 function clearInput(){
 	let input = getInput();
 	input.innerHTML = 0;
+	document.getElementById("div.").style.pointerEvents = "auto";
 }
 
 /* Calculator Grid */
