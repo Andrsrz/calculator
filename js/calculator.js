@@ -16,10 +16,10 @@ const MINUS = '-';
 const MULTIPLY = '*';
 const DIVIDE = '/';
 const POWER = 'x²';
-const SQUARE = ''
+const SQUARE = '√';
 const EQUAL = '=';
 const NORMAL_MODE = "normal";
-const CELLS = [SEVEN, EIGHT, NINE, DIVIDE, FOUR, FIVE, SIX, MULTIPLY, ONE, TWO, THREE, MINUS, ZERO, CLEAR, EQUAL, PLUS];
+const CELLS = [SEVEN, EIGHT, NINE, DIVIDE, CLEAR, FOUR, FIVE, SIX, MULTIPLY, DELETE, ONE, TWO, THREE, MINUS, POWER, ZERO, POINT, EQUAL, PLUS, SQUARE];
 const OPERATORS = [DIVIDE, MULTIPLY, MINUS, PLUS];
 const NUMBERS = [SEVEN, EIGHT, NINE, FOUR, FIVE, SIX, ONE, TWO, THREE, ZERO];
 var globalOperation = [];
@@ -75,7 +75,7 @@ function createDiv(innerChar){
 }
 
 function setCalculatorGrid(size, mode){
-	/* Ser the actual size for the rows */
+	/* Set the actual size for the rows */
 	rowSize = size + ONE;
 	/* Create Calculator in Normal Mode */
 	if(mode == NORMAL_MODE){
