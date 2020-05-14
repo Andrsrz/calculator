@@ -3,7 +3,6 @@
 
 ## What is this?
 GUI calculator made with JS.
-![](media/test.gif)
 
 ## License
 [MIT](https://mit-license.org/)
